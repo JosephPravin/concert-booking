@@ -1,0 +1,26 @@
+[{
+    "concerts": [
+        {
+            "id": 1,
+            "name": "Concert 1",
+            "venue": "Chennai",
+            "seats": 100,
+            "available": 100
+        },
+        {
+            "id": 2,
+            "name": "Concert 2",
+            "venue": "Chennai",
+            "seats": 100,
+            "available": 2
+        },
+        {
+            "id": 3,
+            "name": "Concert 3",
+            "venue": "Bangalore",
+            "seats": 100,
+            "available": 0
+        }
+    ]
+}
+]
