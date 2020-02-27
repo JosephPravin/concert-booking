@@ -4,12 +4,15 @@ class EditProfile extends Component {
     state = {  }
 
     render() { 
-        if(!this.props.show){
-            return null;
-        }
+
+        const showHideModal = this.props.show ? {display: 'block'} : {display: 'none'};
+
         return ( 
-            <div>
+            <div style={showHideModal}>
                 Edit here...
+                <button onClick={this.props.handleClose}>
+                    Save changes
+                </button>
             </div>
         );
     }

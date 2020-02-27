@@ -17,7 +17,6 @@ class App extends Component {
   };
 
   handleBooking = (concert, count) => {
-    debugger;
     const concerts = [...this.state.concerts];
     let look = concerts[0].concerts.filter((c)=>c.name === concert);
     if(look[0].available-count >=0) {
