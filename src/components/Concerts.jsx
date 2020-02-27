@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Concert from './Concert';
+import Cities from './Cities';
 
 
 class Concerts extends Component {
@@ -13,6 +14,7 @@ class Concerts extends Component {
 
     // filter for which city to display
     setVenue = venue => {
+        debugger;
         this.setState({venue});
     }
 
@@ -23,14 +25,13 @@ class Concerts extends Component {
 
         return (
                 <React.Fragment>
-                    <mark>Cities:</mark><br/>
-                    <button className="btn btn-secondary" value="chennai" onClick={() => {this.setVenue('Chennai')}}>Chennai</button>
-                    <button className="btn btn-secondary" value="bangalore" onClick={() => {this.setVenue('Bangalore')}}>Bangalore</button>
-
+                    <Cities setVenue = {this.setVenue} concerts={concerts}/>
                     {
                     concerts.concerts.map(concert => {
                         if(this.state.venue === concert.venue) {
                             return <Concert key={concert.id} concert={concert} handleBooking={handleBooking}></Concert>
+                        } else {
+                            return null;
                         }
                     }
                     )

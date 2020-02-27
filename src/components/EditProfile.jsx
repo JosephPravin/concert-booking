@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal';
 
 class EditProfile extends Component {
-    state = {  }
+
+    state = {
+        name: this.props.user.name,
+        bio: this.props.user.bio,
+        dp: this.props.user.dp
+    };
+
+    saveUser() {
+        console.log(document.getElementById("name").value);
+        console.log(document.getElementById("bio").value);
+        console.log(document.getElementById("dp").value);
+    }
 
     render() { 
 
-        const showHideModal = this.props.show ? {display: 'block'} : {display: 'none'};
+        const { show, handleClose, user } = this.props;
 
         return ( 
-            <div style={showHideModal}>
-                Edit here...
-                <button onClick={this.props.handleClose}>
-                    Save changes
-                </button>
-            </div>
+            <Modal isOpen={show} onRequestClose={handleClose} ariaHideApp={false}>
+                    <form action="" className="form-group">
+                        Name: <input id="name" type="text" className="form-control"/><br/>
+                        Bio: <input id="bio" type="text" className="form-control"/><br/>
+                        Picture: <input id="dp" type="text" className="form-control"/><br/>
+                        <button onClick={this.saveUser}>
+                            Save changes
+                        </button>
+                    </form>
+            </Modal>
         );
     }
 }
