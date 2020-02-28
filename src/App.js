@@ -29,11 +29,11 @@ class App extends Component {
 
   render() { 
     return (
-      <div>
+      <div className="container">
         <NavBar header="Book your tickets"></NavBar>
         <div className="row">
-          <div className="col-4"><Profile user={this.state.users[0].user1}/></div>
-          <div className="col-8"> <Concerts concerts={this.state.concerts[0]} handleBooking={this.handleBooking}/></div>
+          <Profile user={this.state.users[0].user1}/>
+          <Concerts concerts={this.state.concerts[0]} handleBooking={this.handleBooking}/>
         </div>
       </div>
     );

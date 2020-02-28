@@ -24,7 +24,7 @@ class Concerts extends Component {
 
 
         return (
-                <React.Fragment>
+                <div>
                     <Cities setVenue = {this.setVenue} concerts={concerts}/>
                     {
                     concerts.concerts.map(concert => {
@@ -36,7 +36,7 @@ class Concerts extends Component {
                     }
                     )
                     }
-                </React.Fragment>
+                </div>
             );
            
     }

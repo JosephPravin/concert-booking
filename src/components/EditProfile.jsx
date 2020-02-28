@@ -17,7 +17,7 @@ class EditProfile extends Component {
 
     render() { 
 
-        const { show, handleClose, user } = this.props;
+        const { show, handleClose } = this.props;
 
         return ( 
             <Modal isOpen={show} onRequestClose={handleClose} ariaHideApp={false}>
@@ -25,7 +25,7 @@ class EditProfile extends Component {
                         Name: <input id="name" type="text" className="form-control"/><br/>
                         Bio: <input id="bio" type="text" className="form-control"/><br/>
                         Picture: <input id="dp" type="text" className="form-control"/><br/>
-                        <button onClick={this.saveUser}>
+                        <button className="btn btn-primary" onClick={this.saveUser}>
                             Save changes
                         </button>
                     </form>

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Cities.css';
 
 const Cities = (props) => {
 
@@ -14,7 +15,7 @@ const Cities = (props) => {
 
     return (
         <React.Fragment>
-            <mark>Cities:</mark><br/>
+            <h4 class="city-title"><strong>Cities:</strong></h4>
 
             <div class="btn-group" role="group" aria-label="Basic example">
                 {
