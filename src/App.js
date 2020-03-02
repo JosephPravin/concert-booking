@@ -12,17 +12,30 @@ class App extends Component {
     super(props);
     this.state = { 
       concerts: concerts, 
-      users: users
+      user: users[0]
     };
   };
 
   handleBooking = (concert, count) => {
-    debugger;
     const concerts = [...this.state.concerts];
     let look = concerts[0].concerts.filter((c)=>c.name === concert);
     if(look[0].available-count >=0) {
       look[0].available -= count;
       this.setState({concerts: concerts});
+      let user = {...this.state.user};
+      let exists = user.tickets.filter((e) => e.name === concert);
+      debugger;
+      if(exists.length === 0){
+        user.tickets.push({
+          name: concert,
+          tickets: parseInt(count)
+        });
+      } else {
+        exists[0].tickets += parseInt(count)
+      }
+            
+      
+      this.setState({user});
     } else {
       window.alert("Limit exceeded");
     }
@@ -30,11 +43,11 @@ class App extends Component {
 
   render() { 
     return (
-      <div>
-        <NavBar header="Book your tickets"></NavBar>
+      <div className="container">
+        <NavBar header="Book your tickets" user={this.state.user}></NavBar>
         <div className="row">
-          <div className="col-4"><Profile user={this.state.users[0].user1}/></div>
-          <div className="col-8"> <Concerts concerts={this.state.concerts[0]} handleBooking={this.handleBooking}/></div>
+          <Profile user={this.state.user}/>
+          <Concerts concerts={this.state.concerts[0]} handleBooking={this.handleBooking}/>
         </div>
       </div>
     );

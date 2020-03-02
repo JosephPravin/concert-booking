@@ -8,11 +8,11 @@ class Concert extends Component {
     }
 
     bookTickets = (name, count) => {
-        // const count = document.getElementById("count").value;
         this.props.handleBooking(name, count);
     }
 
-    hideBookingPane = () => {
+    // to toggle view
+    setBookingPane = () => {
         this.setState({hideBookingPane: !this.state.hideBookingPane})
     }
 
@@ -25,9 +25,9 @@ class Concert extends Component {
                 <p className="card-title">{concert.name} <span style={{float: "right"}}>{concert.venue}</span></p>
                 <span className="card-text bg-light">Total Seats: {concert.seats}</span><br/>
                 <span className="card-text bg-light">Available: {concert.available}</span>
-                <input className={concert.available > 0 ? "btn btn-success" : "btn btn-danger"} type="button" style={{float: "right"}} disabled={concert.available === 0}  value={ concert.available ? "BOOK" : "FULL"} onClick={e=> this.hideBookingPane()}></input>
+                <input className={concert.available > 0 ? "btn btn-success" : "btn btn-danger"} type="button" style={{float: "right"}} disabled={concert.available === 0}  value={ concert.available ? "BOOK" : "FULL"} onClick={e=> this.setBookingPane()}></input>
             </div>
-            <BookTicket concert={concert} hideBookingPane={this.state.hideBookingPane} bookTickets={this.bookTickets}/>
+            <BookTicket concert={concert} hideBookingPane={this.state.hideBookingPane} setBookingPane={this.setBookingPane} bookTickets={this.bookTickets}/>
         </div>
         );
     }
