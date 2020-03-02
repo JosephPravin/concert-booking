@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
 
 class BookTicket extends Component {
+
     state = {  }
+    bookTicket = () => {
+            const tickets = document.getElementById(this.props.concert.id).value;
+            if(tickets < 1) {
+                alert("Atleast 1 ticket required!!");
+                return;
+            }
+            this.props.bookTickets(this.props.concert.name, tickets);
+            document.getElementById(this.props.concert.id).value = 0;
+    }
     render() { 
 
         const {concert, hideBookingPane} = this.props;
         return ( 
-            <div hidden={ hideBookingPane }>
-                <label htmlFor="count">Number of tickets</label>
-                <input type="number" id={concert.id} min="1" max={concert.available}></input><br/>
-                <button onClick={ e => {
-                    this.props.bookTickets(concert.name, document.getElementById(concert.id).value);
-                    document.getElementById(concert.id).value = 0;
-                    }}>Ok</button>
+            <div hidden={ hideBookingPane } className="card text-center" style={{backgroundColor: "#fbffb8"}}>
+                <div class="card-body">
+                    <label>Number of tickets:&nbsp;</label>
+                    <input type="number" id={concert.id} min="1" max={concert.available}/><br/>
+                    <button class="btn btn-link" onClick={ () => this.props.setBookingPane()}>Cancel</button>
+                    <button class="btn btn-primary" onClick={ () => this.bookTicket()}>Ok</button>
+                </div>
             </div>
          );
     }

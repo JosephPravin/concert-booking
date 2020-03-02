@@ -10,14 +10,12 @@ const Cities = (props) => {
             allCities.push(city.venue)
         }
     });
-    
-    debugger;
 
     return (
         <React.Fragment>
-            <h4 class="city-title"><strong>Cities:</strong></h4>
+            <h4 className="city-title"><strong>Cities:</strong></h4>
 
-            <div class="btn-group" role="group" aria-label="Basic example">
+            <div className="btn-group" role="group" aria-label="Basic example">
                 {
                     allCities.map(city => {
                         return <button className="btn btn-secondary" value={city} onClick={() => {props.setVenue(city)}}>{city}</button>

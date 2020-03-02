@@ -14,7 +14,6 @@ class Concerts extends Component {
 
     // filter for which city to display
     setVenue = venue => {
-        debugger;
         this.setState({venue});
     }
 
