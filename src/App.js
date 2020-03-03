@@ -7,18 +7,18 @@ import Profile from './components/Profile';
 import Concerts from  './components/Concerts';
 
 class App extends Component {
-  
+
   constructor(props) {
     super(props);
     this.state = { 
       concerts: concerts, 
       user: users[0]
     };
-  };
-
+  }
+  
   handleBooking = (concert, count) => {
     const concerts = [...this.state.concerts];
-    let look = concerts[0].concerts.filter((c)=>c.name === concert);
+    let look = concerts.filter((c)=>c.name === concert);
     if(look[0].available-count >=0) {
       look[0].available -= count;
       this.setState({concerts: concerts});
@@ -38,29 +38,26 @@ class App extends Component {
     }
   }
 
-  handleProfileEdit = (obj) => {
-    let user = {...this.state.user};
-    if(user.id === obj.id) {
-      if(obj.name !== "") {
-        user.name = obj.name;
-      }
-      if(obj.bio !== "") {
-        user.bio = obj.bio;
-      }
-      if(obj.dp !== "") {
-        user.dp = obj.dp;
-      }
-      this.setState({user});
-    }
+  handleProfileEdit = obj => {
+    const { user } = {...this.state};
+
+    this.setState({
+      user: {...user},
+      obj
+    });
   }
 
   render() { 
     return (
       <div className="container">
-        <NavBar header="Book your tickets" user={this.state.user}></NavBar>
+        <NavBar header="Book your tickets" user={this.state.user}></NavBar> 
         <div className="row">
-          <Profile user={this.state.user} onProfileEdit={this.handleProfileEdit}/>
-          <Concerts concerts={this.state.concerts[0]} handleBooking={this.handleBooking}/>
+          <div className="col-sm">
+            <Profile user={this.state.user} onProfileEdit={this.handleProfileEdit}/>
+          </div>
+          <div className="col">
+            <Concerts concerts={this.state.concerts} handleBooking={this.handleBooking}/>
+          </div>
         </div>
       </div>
     );

@@ -5,7 +5,7 @@ const Cities = (props) => {
 
     const allCities = [];
     
-    props.concerts.concerts.forEach((city) => {
+    props.concerts.forEach((city) => {
         if(allCities.indexOf(city.venue) === -1){
             allCities.push(city.venue)
         }
@@ -18,7 +18,7 @@ const Cities = (props) => {
             <div className="btn-group" role="group" aria-label="Basic example">
                 {
                     allCities.map(city => {
-                        return <button className="btn btn-secondary" value={city} onClick={() => {props.setVenue(city)}}>{city}</button>
+                        return <button className="btn btn-secondary" value={city} onClick={() => {props.setVenue(city)}} key={city}>{city}</button>
                     })
                 }
             </div>

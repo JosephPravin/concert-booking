@@ -26,7 +26,7 @@ class Concerts extends Component {
                 <div>
                     <Cities setVenue = {this.setVenue} concerts={concerts}/>
                     {
-                    concerts.concerts.map(concert => {
+                    concerts.map(concert => {
                         if(this.state.venue === concert.venue) {
                             return <Concert key={concert.id} concert={concert} handleBooking={handleBooking}></Concert>
                         } else {

@@ -1,47 +1,44 @@
-[{
-    "concerts": [
-        {
-            "id": 1,
-            "name": "Concert 1",
-            "venue": "Chennai",
-            "seats": 100,
-            "available": 100
-        },
-        {
-            "id": 2,
-            "name": "Concert 2",
-            "venue": "Chennai",
-            "seats": 100,
-            "available": 2
-        },
-        {
-            "id": 3,
-            "name": "Concert 3",
-            "venue": "Bangalore",
-            "seats": 100,
-            "available": 0
-        },
-        {
-            "id": 4,
-            "name": "Concert 4",
-            "venue": "Hyderabad",
-            "seats": 30,
-            "available": 25
-        },
-        {
-            "id": 5,
-            "name": "Concert 5",
-            "venue": "New Delhi",
-            "seats": 25,
-            "available": 25
-        },
-        {
-            "id": 6,
-            "name": "Concert 6",
-            "venue": "New Delhi",
-            "seats": 100,
-            "available": 45
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "name": "Concert 1",
+        "venue": "Chennai",
+        "seats": 100,
+        "available": 100
+    },
+    {
+        "id": 2,
+        "name": "Concert 2",
+        "venue": "Chennai",
+        "seats": 100,
+        "available": 2
+    },
+    {
+        "id": 3,
+        "name": "Concert 3",
+        "venue": "Bangalore",
+        "seats": 100,
+        "available": 0
+    },
+    {
+        "id": 4,
+        "name": "Concert 4",
+        "venue": "Hyderabad",
+        "seats": 30,
+        "available": 25
+    },
+    {
+        "id": 5,
+        "name": "Concert 5",
+        "venue": "New Delhi",
+        "seats": 25,
+        "available": 25
+    },
+    {
+        "id": 6,
+        "name": "Concert 6",
+        "venue": "New Delhi",
+        "seats": 100,
+        "available": 45
+    }
 ]
