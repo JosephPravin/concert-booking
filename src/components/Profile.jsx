@@ -16,7 +16,7 @@ class Profile extends Component {
     }
     
     render() { 
-        const { user } = this.props;
+        const { user, onProfileEdit } = this.props;
         
         return ( 
             <div className="profile">
@@ -39,7 +39,7 @@ class Profile extends Component {
                     })
                 }
                 </div>
-                <EditProfile user={user} show={this.state.openModal} handleClose={this.hideModal}/>
+                <EditProfile user={user} show={this.state.openModal} handleClose={this.hideModal} onProfileEdit={onProfileEdit}/>
             </div>
          );
     }

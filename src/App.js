@@ -24,7 +24,6 @@ class App extends Component {
       this.setState({concerts: concerts});
       let user = {...this.state.user};
       let exists = user.tickets.filter((e) => e.name === concert);
-      debugger;
       if(exists.length === 0){
         user.tickets.push({
           name: concert,
@@ -33,11 +32,25 @@ class App extends Component {
       } else {
         exists[0].tickets += parseInt(count)
       }
-            
-      
       this.setState({user});
     } else {
       window.alert("Limit exceeded");
+    }
+  }
+
+  handleProfileEdit = (obj) => {
+    let user = {...this.state.user};
+    if(user.id === obj.id) {
+      if(obj.name !== "") {
+        user.name = obj.name;
+      }
+      if(obj.bio !== "") {
+        user.bio = obj.bio;
+      }
+      if(obj.dp !== "") {
+        user.dp = obj.dp;
+      }
+      this.setState({user});
     }
   }
 
@@ -46,7 +59,7 @@ class App extends Component {
       <div className="container">
         <NavBar header="Book your tickets" user={this.state.user}></NavBar>
         <div className="row">
-          <Profile user={this.state.user}/>
+          <Profile user={this.state.user} onProfileEdit={this.handleProfileEdit}/>
           <Concerts concerts={this.state.concerts[0]} handleBooking={this.handleBooking}/>
         </div>
       </div>
