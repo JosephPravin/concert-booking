@@ -13,8 +13,8 @@ class EditProfile extends Component {
         this.props.onProfileEdit({
             id: this.props.user.id,
             name: document.getElementById("name").value,
-            // bio: document.getElementById("bio").value,
-            // dp: document.getElementById("dp").value
+            bio: document.getElementById("bio").value,
+            dp: document.getElementById("dp").value
         });
     }
 
@@ -37,8 +37,8 @@ class EditProfile extends Component {
             <Modal isOpen={show} onRequestClose={handleClose} style={customStyles} ariaHideApp={false}>
                     <form action="" className="form-group">
                         Name: <input id="name" type="text" className="form-control"/><br/>
-                        {/* Bio: <input id="bio" type="text" className="form-control"/><br/>
-                        Picture: <input id="dp" type="file" accept="image/jpg" className="form-control"/><br/> */}
+                        Bio: <input id="bio" type="text" className="form-control"/><br/>
+                        Picture: <input id="dp" type="file" accept="image/jpg" className="form-control"/><br/>
                         <button className="btn btn-primary" onClick={this.saveUser}>
                             Save changes
                         </button>

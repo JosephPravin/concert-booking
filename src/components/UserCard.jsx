@@ -6,8 +6,10 @@ const UserCard = (props) => {
         <React.Fragment>
             <img src={user.dp} alt="..."/>
             <h5>{user.name}</h5>
-            <p>{user.bio}</p>
-            <button className="btn btn-info" onClick={props.showModal}>Edit</button>
+            <p>
+                {user.bio}&nbsp;
+                <button className="btn btn-info" onClick={props.showModal}>Edit Profile</button>
+            </p>
         </React.Fragment>
     );
 }
